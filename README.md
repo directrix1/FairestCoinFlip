@@ -6,7 +6,7 @@ The Fairest Coin Flip protocol describes an agreed upon method for an interested
 
 ## Software ##
 
-### Prerequisites ###
+### Dependencies ###
 
  * [Mozilla NSS](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS) for cryptographic signing/verification
 
