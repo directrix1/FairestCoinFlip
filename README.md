@@ -19,10 +19,11 @@ The protocol can work over any transport capable of distributing [Cryptographic 
  * _Alice_ decides to have a Fairest Coin Flip with _Bob_ and _Charlie_
  * _Alice_ creates a MIME encoded *proposal* describing the expiration date (in GMT) as a header field, a random nonce as a header field, the possible outcomes (enumerated and starting at 0) as text body, and the participants' public keys as additional MIME parts like so:
 ```
-Expires: Wed, 17 Sep 2014 13:22:00
-Nonce: 6734475958795bad76789e5f
-Content-type: multipart/mixed;
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
   boundary=thisisamimeboundary--
+X-Expires: Wed, 17 Sep 2014 13:22:00
+X-Nonce: 6734475958795bad76789e5f
 
 0. Go to Joey Joe Joe Joe's Crab Shack
 1. Scavenge locally for food
@@ -40,6 +41,8 @@ BobsPublicKey
 Content-type: WhateverPublicKeyMIMEMediaTypeCharlieUses
 
 CharliesPublicKey
+--thisisamimeboundary--
+
 ```
  * _Alice_ then encapsulates the *proposal* in an unencrypted CMS signed (with her private key) message
  * _Alice_ distributes the *CMS encapsulated proposal* to the other participants (_Bob_ and _Charlie_)
@@ -51,12 +54,13 @@ CharliesPublicKey
 
 ### 3. Distributing Proofs
  * _Each participant_ then distributes their *proof of choice* to the other participants, without the message
+ * If _any participant_ fails to distribute their *proof of choice* by the Expires time then the *proposal* is **Void** and the process stops (the *proof of choice* is each participant's opt in)
 
 ### 4. Distributing Reveals
  * After _every participant_ gets _every other participants_ *proof of choice* then _each participant_ distributes their *reveal document* to the other participants
 
 ### 5. Determining Result
- * If _a participant_ fails to distribute their *reveal document* or *proof of choice* to the _other participants_ by the Expires time then _that participant_ is considered **Ejected**, no longer considered _a participant_
+ * If _a participant_ fails to distribute their *reveal document* to the _other participants_ by the Expires time then _that participant_ is considered **Ejected**, no longer considered _a participant_
  * _Each participant_ verifies that _every other participant_'s *proof of choice* signature was generated for _that participant_'s *reveal document*
  * If _any participant_ fails verification then _that participant_ is **Ejected**, no longer considered _a participant_
  * _All participants_ now know the **result** by summing _every non-**Ejected** participants'_ x (from their *reveal document*) modulo the total number of choices
