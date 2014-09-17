@@ -58,8 +58,9 @@ CharliesPublicKey
 
 ### 5. Determining Result
  * If _a participant_ fails to distribute their *reveal document* or *proof of choice* to the _other participants_ by the Expires time, then _that participant_ is considered Ejected and no longer considered _a participant_
- * _Each participant_ verifies that the *proof of choice* signature was generated for the *reveal document* originally supplied
- _Each participant_ then knows the result from summing _every other participants'_ x (from their *reveal document*s) modulo the total number of choices
+ * _Each participant_ verifies that the *proof of choice* signature was generated for the *reveal document* originally supplied by
+ _every other participant_.
+ * _All participants_ now know the result by summing _every other participants'_ x (from their *reveal document*s) modulo the total number of choices
 
 NOTES:
  * To discourage ejections, an independant mediator who is uninterested in the results may be brought in as a participant. They would not need to know the original *proposal*. They only need to know the *CMS encapsulated proposal*'s signature. It should be assumed that this mediator would go last in the reveal, because the last _participant_ in the reveal knows the results before sending out their *reveal document* and can choose to be Ejected rather than reveal.
