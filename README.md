@@ -50,7 +50,7 @@ CharliesPublicKey
 ### 2. Calculating Reveals and Proofs
  * _Each participant_ decides they want to participate so they each pick a number, x, (random or otherwise) from the list in the *CMS encapsulated proposal*
  * _Each participant_ then creates a CMS signed *reveal document*, the body of which consists of: the decimal number x followed by a space followed by the *CMS encapsulated proposal*'s signature
- * _Each participant_ then defines their *proof of choice* as the *reveal document*'s signature
+ * _Each participant_ then defines their *proof of choice* to be the *reveal document*'s signature
 
 ### 3. Distributing Proofs
  * _Each participant_ then distributes their *proof of choice* to the other participants
