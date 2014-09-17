@@ -17,11 +17,10 @@ The protocol can work over any transport capable of distributing [Cryptographic 
 
 ### 1. Proposal 
  * _Alice_ decides to have a Fairest Coin Flip with _Bob_ and _Charlie_
- * _Alice_ creates a MIME encoded *proposal* describing the date (in GMT) as a header field, a random nonce as a header field, the possible outcomes (enumerated and starting at 0) as text body, and the participants' public keys as additional MIME parts like so:
+ * _Alice_ creates a MIME encoded *proposal* describing the expiration date (in GMT) as a header field, a random nonce as a header field, the possible outcomes (enumerated and starting at 0) as text body, and the participants' public keys as additional MIME parts like so:
 ```
-Date: Wed, 17 Sep 2014 13:21:00
 Expires: Wed, 17 Sep 2014 13:22:00
-X-nonce: 6734475958795bad76789e5f
+Nonce: 6734475958795bad76789e5f
 Content-type: multipart/mixed;
   boundary=thisisamimeboundary--
 
