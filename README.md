@@ -41,7 +41,7 @@ Content-type: WhateverPublicKeyMIMEMediaTypeCharlieUses
 
 CharliesPublicKey
 ```
- * _Alice_ then encapsulates the *proposal* in an unencrypted CMS signed message (with her private key)
+ * _Alice_ then encapsulates the *proposal* in an unencrypted CMS signed (with her private key) message
  * _Alice_ distributes the *CMS encapsulated proposal* to the other participants (_Bob_ and _Charlie_)
 
 ### 2. Calculating Reveals and Proofs
