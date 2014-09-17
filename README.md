@@ -57,9 +57,9 @@ CharliesPublicKey
  * After _every participant_ gets _every other participants_ *proof of choice* then _each participant_ distributes their *reveal document* to the other participants
 
 ### 5. Determining Result
- * If _a participant_ fails to distribute their *reveal document* or *proof of choice* to the _other participants_ by the Expires time, then _that participant_ is considered Ejected and no longer considered _a participant_
- * _Each participant_ verifies that the *proof of choice* signature was generated for the *reveal document* originally supplied by
- _every other participant_.
+ * If _a participant_ fails to distribute their *reveal document* or *proof of choice* to the _other participants_ by the Expires time then _that participant_ is considered Ejected, no longer considered _a participant_
+ * _Each participant_ verifies that _every other participant_'s *proof of choice* signature was generated for _that participant_'s *reveal document*
+ * If _any participant_ fails verification then _that participant_ is Ejected, no longer considered _a participant_
  * _All participants_ now know the result by summing _every other participants'_ x (from their *reveal document*s) modulo the total number of choices
 
 NOTES:
