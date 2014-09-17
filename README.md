@@ -57,7 +57,7 @@ CharliesPublicKey
  * If _any participant_ fails to distribute their *proof of choice* by the Expires time then the *proposal* is **Void** and the process stops (the *proof of choice* is each participant's opt in)
 
 ### 4. Distributing Reveals
- * After _every participant_ gets _every other participants_ *proof of choice* then _each participant_ distributes their *reveal document* to the other participants
+ * After _every participant_ gets _every other participant_'s *proof of choice* then _each participant_ distributes their *reveal document* to the other participants
 
 ### 5. Determining Result
  * If _a participant_ fails to distribute their *reveal document* to the _other participants_ by the Expires time then _that participant_ is considered **Ejected**, no longer considered _a participant_
