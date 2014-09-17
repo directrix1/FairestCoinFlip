@@ -30,15 +30,15 @@ X-Nonce: 6734475958795bad76789e5f
 2. Starve
 
 --thisisamimeboundary--
-Content-type: WhateverPublicKeyMIMEMediaTypeAliceUses
+Content-Type: WhateverPublicKeyMIMEMediaTypeAliceUses
 
 AlicesPublicKey
 --thisisamimeboundary--
-Content-type: WhateverPublicKeyMIMEMediaTypeBobUses
+Content-Type: WhateverPublicKeyMIMEMediaTypeBobUses
 
 BobsPublicKey
 --thisisamimeboundary--
-Content-type: WhateverPublicKeyMIMEMediaTypeCharlieUses
+Content-Type: WhateverPublicKeyMIMEMediaTypeCharlieUses
 
 CharliesPublicKey
 --thisisamimeboundary--
@@ -49,11 +49,11 @@ CharliesPublicKey
 
 ### 2. Calculating Reveals and Proofs
  * _Each participant_ decides they want to participate so they each pick a number, x, (random or otherwise) from the list in the *CMS encapsulated proposal*
- * _Each participant_ then creates a *reveal document*, which consists of x followed by a space followed by the *CMS encapsulated proposal*'s signature
- * _Each participant_ then signs their *reveal document*, and the signature part becomes their *proof of choice*
+ * _Each participant_ then creates a CMS signed *reveal document*, the body of which consists of: the number x followed by a space followed by the *CMS encapsulated proposal*'s signature
+ * _Each participant_ then defines their *proof of choice* as the *reveal document*'s signature
 
 ### 3. Distributing Proofs
- * _Each participant_ then distributes their *proof of choice* to the other participants, without the message
+ * _Each participant_ then distributes their *proof of choice* to the other participants
  * If _any participant_ fails to distribute their *proof of choice* by the Expires time then the *proposal* is **Void** and the process stops (the *proof of choice* is each participant's opt in)
 
 ### 4. Distributing Reveals
